@@ -2,20 +2,22 @@ cmake_minimum_required(VERSION 3.0.2)
 project(cv_bridge)
 
 find_package(catkin REQUIRED COMPONENTS rosconsole sensor_msgs)
+find_package(PythonLibs 3.6 REQUIRED)
+find_package(Boost COMPONENTS python3 REQUIRED)
 
-if(NOT ANDROID)
-  find_package(PythonLibs)
+#if(NOT ANDROID)
+#  find_package(PythonLibs)
 
-  if(PYTHONLIBS_VERSION_STRING VERSION_LESS "3.8")
+#  if(PYTHONLIBS_VERSION_STRING VERSION_LESS "3.8")
     # Debian Buster
-    find_package(Boost REQUIRED python37)
-  else()
+#    find_package(Boost REQUIRED python37)
+#  else()
     # Ubuntu Focal
-    find_package(Boost REQUIRED python)
-  endif()
-else()
-find_package(Boost REQUIRED)
-endif()
+#    find_package(Boost REQUIRED python)
+#  endif()
+#else()
+#find_package(Boost REQUIRED)
+#endif()
 
 set(_opencv_version 4)
 find_package(OpenCV 4 QUIET)
